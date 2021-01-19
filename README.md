@@ -8,12 +8,6 @@ The purpose of this challenge was to edit, (or "refactor") the original VBA scri
 
 ## Results
 
-![VBA_Challenge_2017](https://user-images.githubusercontent.com/75760493/105073531-cd1a4f80-5a4c-11eb-8906-d0267ee0b8bf.PNG)
-
-
-![VBA_Challenge_2018](https://user-images.githubusercontent.com/75760493/105073587-defbf280-5a4c-11eb-8648-e7f5078cc0bc.PNG)
-
-
 ![old_time_2017](https://user-images.githubusercontent.com/75760493/105074449-fd162280-5a4d-11eb-86eb-9d9b50b392a5.PNG)
 
 
@@ -22,11 +16,11 @@ The purpose of this challenge was to edit, (or "refactor") the original VBA scri
 
 
 
-![new_time_2017](https://user-images.githubusercontent.com/75760493/105074604-3189de80-5a4e-11eb-8e82-91a9ced7884d.PNG)
+![VBA_Challenge_2017](https://user-images.githubusercontent.com/75760493/105075354-47e46a00-5a4f-11eb-9819-717f04a9676f.PNG)
 
 
 
-![new_time_2018](https://user-images.githubusercontent.com/75760493/105074636-3fd7fa80-5a4e-11eb-8b4e-bd7294fefae8.PNG)
+![VBA_Challenge_2018](https://user-images.githubusercontent.com/75760493/105075390-529eff00-5a4f-11eb-9e68-85a86a1fc22f.PNG)
 
 
 
