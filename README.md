@@ -8,6 +8,22 @@ The purpose of this challenge was to edit, (or "refactor") the original VBA scri
 
 ## Results
 
+Analysis of AllStocks(2017):
+
+![2017results](https://user-images.githubusercontent.com/75760493/105090025-81bf6b80-5a63-11eb-9aa9-d0a05d090a5f.PNG)
+
+
+
+
+
+
+Analysis of AllStocks(2018):
+
+![2018results](https://user-images.githubusercontent.com/75760493/105090281-d7941380-5a63-11eb-9523-ad6aad266829.PNG)
+
+
+Code refactoring was a major part of this project. The initial analysis was written using a nested for loop - an iterative process within which multiple additional iterative processes are contained. An example of the code is shown below
+
 Code:
 
     '1a) Create a ticker Index
@@ -86,12 +102,6 @@ Code:
  
     endTime = Timer
     MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (yearValue)
-
-
-
-
-
-
 
 
 
