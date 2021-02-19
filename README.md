@@ -23,84 +23,122 @@ However, from the results from the image above, 2018 was not as benefical as 201
 
 Code refactoring was a major part of this project. The initial analysis was written using a nested for loop - an iterative process within which multiple additional iterative processes are contained. An example of the code is shown below
 
-Code:
+Refactored Code:
 
     '1a) Create a ticker Index
+
     tickerIndex = 0
     
+
     '1b) Create three output arrays
     Dim tickerVolumes(12) As Long
     Dim tickerStartingPrices(12) As Single
     Dim tickerEndingPrices(12) As Single
     
-    '2a) Create a for loop to initialize the tickerVolumes to zero
+    
+    '2a) Create a for loop to initialize the tickerVolumes to zero.
+    
     For i = 0 To 11
-      tickerVolumes(i) = 0
-      tickerStartingPrices(i) = 0
-      tickerEndingPrices(i) = 0
+        tickerVolumes(i) = 0
+        tickerStartingPrices(i) = 0
+        tickerEndingPrices(i) = 0
+    
     Next i
     
     '2b) Loop over all the rows in the spreadsheet.
+    
     For i = 2 To RowCount
     
-      '3a) Increase volume for current ticker
-      tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+    
+        '3a) Increase volume for current ticker
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
 
-      '3b) Check if the current row is the first row with the selected tickerIndex.
-      If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then     
-      'If Then
-      tickerStartingPrices(tickerIndex) = Cells(i, 6).Value     
-      'End If
-      End If
         
-      '3c) check if the current row is the last row with the selected ticker
-      'If the next row’s ticker doesn’t match, increase the tickerIndex. 
-      'If Then
-       If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
-        tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
-
-      '3d Increase the tickerIndex.
-      If Cells(i + 1, 1).Value <> tickers(tickerIndex) AND Cells(i, 1).Value = tickers(tickerIndex) Then
-        tickerIndex = tickerIndex + 1 
-      'End If
-      End If
+        '3b) Check if the current row is the first row with the selected tickerIndex.
+        If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
+            
+        'If  Then
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+            
+        End If
+        'End If
+        
+        '3c) check if the current row is the last row with the selected ticker
+        'If the next row’s ticker doesn’t match, increase the tickerIndex.
+        'If Then
+        If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
+            tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+        
+        End If
+        
+            '3d Increase the tickerIndex.
+            If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
+                    tickerIndex = tickerIndex + 1
+        
+            'End If
+            End If
              
-    End If
 
     Next i
     
     '4) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
     For i = 0 To 11
         
-      Worksheets("All Stocks Analysis").Activate
-      Cells(4 + i, 1).Value = tickers(i)
-      Cells(4 + i, 2).Value = tickerVolumes(i)
-      Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+        Worksheets("All Stocks Analysis").Activate
+        Cells(4 + i, 1).Value = tickers(i)
+        Cells(4 + i, 2).Value = tickerVolumes(i)
+        Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
         
     Next i
+
+
+Original Code:
+
+    '4) Loop through the tickers.
     
-    'Formatting
-    Worksheets("All Stocks Analysis").Activate
-    Range("A3:C3").Font.FontStyle = "Bold"
-    Range("A3:C3").Borders(xlEdgeBottom).LineStyle = xlContinuous
-    Range("B4:B15").NumberFormat = "#,##0"
-    Range("C4:C15").NumberFormat = "0.0%"
-    Columns("B").AutoFit
-
-    dataRowStart = 4
-    dataRowEnd = 15
-
-    For i = dataRowStart To dataRowEnd
-      If Cells(i, 3) > 0 Then
-        Cells(i, 3).Interior.Color = vbGreen
-      Else
-        Cells(i, 3).Interior.Color = vbRed 
-      End If
+            For i = 0 To 11
+                ticker = tickers(i)
+                totalVolume = 0
+                
+    
+    '5) Loop through the rows of data.
+                Worksheets(yearValue).Activate
+                For j = 2 To RowCount
+                    
+    
+        '1) Find the total volume for the current ticker
+                    If Cells(j, 1).Value = ticker Then
+                    
+                        totalVolume = totalVolume + Cells(j, 8).Value
+                    
+                    End If
+                
+        '2) Find the starting price for the current ticker
+                If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+                    
+                    startingPrice = Cells(j, 6).Value
+                    
+                End If
         
-    Next i
- 
-    endTime = Timer
-    MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (yearValue)
+        '3) Find the ending price for the current ticker
+                If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+                    
+                    endingPrice = Cells(j, 6).Value
+                    
+                End If
+                
+                
+                Next j
+                
+    '6) Output the data for the current kicker.
+        Worksheets("All Stocks Analysis").Activate
+        Cells(4 + i, 1).Value = ticker
+        Cells(4 + i, 2).Value = totalVolume
+        Cells(4 + i, 3).Value = endingPrice / startingPrice - 1
+                
+        
+        Next i
+        
 
 Below are the run times for both 2017 and 2018 while using the original code and while using the refactored code.
 
@@ -123,5 +161,12 @@ From the images above, the refactor code showed to be successful by reducing the
 
 ## Summary
 
+### Disadvantages of refactoring the code:
+
+One big disadvantage in trying to refactor your code is that you're altering and changing a code that already works and excecutes the way it needs to. Refactoring can easily lead to the code no longer to be able to excecute or excecute properly and give the desired results if it isn't done correctly.
+
+### Advangtages of refactoring the code:
+
+The major advantage is the new refactored code is cleaner, the code is more organized, the code takes less memory to run and would then be able to run much faster which is needed to run a code over a large set of data. Plus having a more orgnaized code would be beneficial in terms of trying to debug the code if there are errors. Not only that, but a cleaner and more organized code would help better explain what the code is trying to do in case someone who hasn't seen the code has to use it or view it. 
 
 
