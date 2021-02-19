@@ -4,7 +4,7 @@
 ## Overview of Project
 
 ### Purpose of Analysis
-The purpose of this challenge was to edit, (or "refactor") the original VBA script that was created to collect and analysis specific data from various stocks for the years 2017 and 2018 years. The original VBA script works great for the small dataset of only a dozen stocks, the script might not work as well if it's used on a much larger data set with thousands of stocks. If the script indeed does work properly for a bigger data set, it still needs to be refactored so that it can reduce the time it takes to excecute the code. Since the script wants to be used for a larger data set, this will cause the script to take more time to finish excecuting. Refactoring the code can be done by reducing the amount of lines of code, using less memory, or by improving the logic of the code so any future user can easily read it.
+The purpose of this challenge was to edit, (or "refactor") the original VBA script that was created to collect and analysis specific data from various stocks for the years 2017 and 2018 years. The original VBA script works great for the small dataset of only a dozen stocks, but the script might not work as well if it's used on a much larger data set with thousands of stocks. If the script indeed does work properly for a bigger data set, it still needs to be refactored so that it can reduce the time it takes to excecute the code. Refactoring the code can be done by reducing the amount of lines of code, using less memory, or by improving the logic of the code so any future user can easily read it.
 
 ## Results
 
