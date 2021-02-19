@@ -118,6 +118,8 @@ Refactored Code:
 ![VBA_Challenge_2018](https://user-images.githubusercontent.com/75760493/105075390-529eff00-5a4f-11eb-9e68-85a86a1fc22f.PNG)
 
 
+From the images above, the refactor code showed to be successful by reducing the time it took to run the code for 2017 from .8671875 seconds to .1640625 seconds, reducing the time by .703125 seconds. Likewise with the year 2018, the refactored code reduced it's excecution time from .8496094 seconds to .1738281 seconds, reducing the time by .6757813 seconds. 
+
 
 ## Summary
 
