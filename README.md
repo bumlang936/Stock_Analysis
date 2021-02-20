@@ -11,14 +11,14 @@ The purpose of this challenge was to edit, (or "refactor") the original VBA scri
 Analysis of AllStocks (2017):
 
 ![2017results](https://user-images.githubusercontent.com/75760493/105090025-81bf6b80-5a63-11eb-9aa9-d0a05d090a5f.PNG)
-
+t
 From the results from the image above, it shows only 1 of the stocks (TERP) had a negative return of 7.2% throughout the whole year. While the other 11 stocks all had positive returns, ranging from 5.5% for RUN all the way to DQ which had a 199.4% return. It shows that 2017 was very beneficial for most of the stocks that were analyzed.
 
 Analysis of AllStocks (2018):
 
 ![2018results](https://user-images.githubusercontent.com/75760493/105090281-d7941380-5a63-11eb-9523-ad6aad266829.PNG)
 
-However, from the results from the image above, 2018 was not as benefical as 2017. Most of the stocks ended up having a negative return with only 2 stocks (ENPH and RUN) had a positive return. Even though there were only two stocks that had a positive return, their returns reached as high as 81.9%, so investing in these stocks would've been very beneficial to the investor. 10 out of the 12 stocks that were analyzed yielded negative yearly returns, ranging from -3.5% to -62.6%.
+However, from the results from the image above, 2018 was not as benefical as 2017. Most of the stocks ended up having a negative return with only 2 stocks (ENPH and RUN) had a positive return. Even though there were only two stocks that had a positive return, their returns reached as high as 81.9%, so investing in these stocks would've been very beneficial to the investor. 10 out of the 12 stocks that were analyzed yielded negative yearly returns, ranging from -3.5% to -62.6%. The main stock of interest was the "DQ" stock, which had an amazing yearly return of almost 200% in 2017. However, it took a big hit in 2018 by having a yearly return of -63%.
 
 
 Code refactoring was a major part of this project. The initial analysis was written using a nested for loop - an iterative process within which multiple additional iterative processes are contained. An example of the code is shown below
@@ -90,55 +90,9 @@ Refactored Code:
         Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
         
     Next i
-
-
-Original Code:
-
-    '4) Loop through the tickers.
-    
-            For i = 0 To 11
-                ticker = tickers(i)
-                totalVolume = 0
-                
-    
-    '5) Loop through the rows of data.
-                Worksheets(yearValue).Activate
-                For j = 2 To RowCount
-                    
-    
-        '1) Find the total volume for the current ticker
-                    If Cells(j, 1).Value = ticker Then
-                    
-                        totalVolume = totalVolume + Cells(j, 8).Value
-                    
-                    End If
-                
-        '2) Find the starting price for the current ticker
-                If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
-                    
-                    startingPrice = Cells(j, 6).Value
-                    
-                End If
         
-        '3) Find the ending price for the current ticker
-                If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
-                    
-                    endingPrice = Cells(j, 6).Value
-                    
-                End If
-                
-                
-                Next j
-                
-    '6) Output the data for the current kicker.
-        Worksheets("All Stocks Analysis").Activate
-        Cells(4 + i, 1).Value = ticker
-        Cells(4 + i, 2).Value = totalVolume
-        Cells(4 + i, 3).Value = endingPrice / startingPrice - 1
-                
-        
-        Next i
-        
+ This refactored code above was altered from the original code by creating 4 new arrays: tickers, tickerVolumes, tickerStartingPrice, and tickerEndingPrice. Also, a new variable was created, tickerIndex, which is used to assign the 3 arrays (tickerVolume, tickerStartingPrice, tickerEndingPrice) to each ticker vaule from ticker(0) to ticker(11). This will cause the code to run faster since now it only needs to access each row of data once, as oppose to the original code which had ot access each 
+piece of data for each possible ticker.
 
 Below are the run times for both 2017 and 2018 while using the original code and while using the refactored code.
 
