@@ -11,7 +11,7 @@ The purpose of this challenge was to edit, (or "refactor") the original VBA scri
 Analysis of AllStocks (2017):
 
 ![2017results](https://user-images.githubusercontent.com/75760493/105090025-81bf6b80-5a63-11eb-9aa9-d0a05d090a5f.PNG)
-t
+
 From the results from the image above, it shows only 1 of the stocks (TERP) had a negative return of 7.2% throughout the whole year. While the other 11 stocks all had positive returns, ranging from 5.5% for RUN all the way to DQ which had a 199.4% return. It shows that 2017 was very beneficial for most of the stocks that were analyzed.
 
 Analysis of AllStocks (2018):
