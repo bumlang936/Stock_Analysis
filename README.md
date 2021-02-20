@@ -4,7 +4,7 @@
 ## Overview of Project
 
 ### Purpose of Analysis
-The purpose of this challenge was to edit, (or "refactor") the original VBA script that was created to collect and analysis specific data from various stocks for the years 2017 and 2018 years. The original VBA script works great for the small dataset of only a dozen stocks, but the script might not work as well if it's used on a much larger data set with thousands of stocks. If the script indeed does work properly for a bigger data set, it still needs to be refactored so that it can reduce the time it takes to excecute the code. Refactoring the code can be done by reducing the amount of lines of code, using less memory, or by improving the logic of the code so any future user can easily read it.
+The purpose of this challenge was to edit, (or "refactor") the original VBA script that was created to collect and analysis specific data from various stocks for the years 2017 and 2018 years. The original VBA script works great for the small dataset of only a dozen stocks, but the script might not work as well if it is used on a much larger data set with thousands of stocks. If the script indeed does work properly for a bigger data set, it still needs to be refactored so that it can reduce the time it takes to execute the code. Refactoring the code can be done by reducing the number of lines of code, using less memory, or by improving the logic of the code so any future user can easily read it.
 
 ## Results
 
@@ -18,10 +18,10 @@ Analysis of AllStocks (2018):
 
 ![2018results](https://user-images.githubusercontent.com/75760493/105090281-d7941380-5a63-11eb-9523-ad6aad266829.PNG)
 
-However, from the results from the image above, 2018 was not as benefical as 2017. Most of the stocks ended up having a negative return with only 2 stocks (ENPH and RUN) had a positive return. Even though there were only two stocks that had a positive return, their returns reached as high as 81.9%, so investing in these stocks would've been very beneficial to the investor. 10 out of the 12 stocks that were analyzed yielded negative yearly returns, ranging from -3.5% to -62.6%. The main stock of interest was the "DQ" stock, which had an amazing yearly return of almost 200% in 2017. However, it took a big hit in 2018 by having a yearly return of -63%.
+However, from the results from the image above, 2018 was not as beneficial as 2017. Most of the stocks ended up having a negative return with only 2 stocks (ENPH and RUN) had a positive return. Even though there were only two stocks that had a positive return, their returns reached as high as 81.9%, so investing in these stocks would've been very beneficial to the investor. 10 out of the 12 stocks that were analyzed yielded negative yearly returns, ranging from -3.5% to -62.6%. The main stock of interest was the "DQ" stock, which had an amazing yearly return of almost 200% in 2017. However, it took a big hit in 2018 by having a yearly return of -63%.
 
 
-Code refactoring was a major part of this project. The initial analysis was written using a nested for loop - an iterative process within which multiple additional iterative processes are contained. An example of the code is shown below
+Code refactoring was a major part of this project. The initial analysis was written using a nested for loop - an iterative process within which multiple additional iterative processes are contained. An example of the code is shown below.
 
 Refactored Code:
 
@@ -91,7 +91,7 @@ Refactored Code:
         
     Next i
         
- This refactored code above was altered from the original code by creating 4 new arrays: tickers, tickerVolumes, tickerStartingPrice, and tickerEndingPrice. Also, a new variable was created, tickerIndex, which is used to assign the 3 arrays (tickerVolume, tickerStartingPrice, tickerEndingPrice) to each ticker vaule from ticker(0) to ticker(11). This will cause the code to run faster since now it only needs to access each row of data once, as oppose to the original code which had ot access each 
+ This refactored code above was altered from the original code by creating 4 new arrays: tickers, tickerVolumes, tickerStartingPrice, and tickerEndingPrice. Also, a new variable was created, tickerIndex, which is used to assign the 3 arrays (tickerVolumes, tickerStartingPrice, tickerEndingPrice) to each ticker value from ticker(0) to ticker(11). This will cause the code to run faster since now it only needs to access each row of data once, as opposed to the original code which had to access each 
 piece of data for each possible ticker.
 
 Below are the run times for both 2017 and 2018 while using the original code and while using the refactored code.
@@ -110,20 +110,20 @@ Refactored Code:
 ![VBA_Challenge_2018](https://user-images.githubusercontent.com/75760493/105075390-529eff00-5a4f-11eb-9e68-85a86a1fc22f.PNG)
 
 
-From the images above, the refactor code showed to be successful by reducing the time it took to run the code for 2017 from .8671875 seconds to .1640625 seconds, reducing the time by .703125 seconds. Likewise with the year 2018, the refactored code reduced it's excecution time from .8496094 seconds to .1738281 seconds, reducing the time by .6757813 seconds. 
+From the images above, the refactor code showed to be successful by reducing the time it took to run the code for 2017 from .8671875 seconds to .1640625 seconds, reducing the time by .703125 seconds. Likewise, with the year 2018, the refactored code reduced its execution time from .8496094 seconds to .1738281 seconds, reducing the time by .6757813 seconds. 
 
 
 ## Summary
 
 ### Disadvantages of refactoring the code:
 
-One big disadvantage in trying to refactor your code is that you're altering and changing a code that already works and excecutes the way it needs to. Refactoring can easily lead to the code no longer to be able to excecute or excecute properly and give the desired results if it isn't done correctly.
+One big disadvantage in trying to refactor this code is that you are altering and changing a code that already works and executes the way it needs to. Refactoring can easily lead to the code no longer to be able to execute or execute properly and give the desired results if it isn't done correctly.
 
-### Advangtages of refactoring the code:
+### Advantages of refactoring the code:
 
-The major advantage is the new refactored code is cleaner, the code is more organized, the code takes less memory to run and would then be able to run much faster which is needed to run a code over a large set of data. Plus having a more orgnaized code would be beneficial in terms of trying to debug the code if there are errors. Not only that, but a cleaner and more organized code would help better explain what the code is trying to do in case someone who hasn't seen the code has to use it or view it. 
+The major advantage is the new refactored code is cleaner, the code is more organized, the code takes less memory to run and would then be able to run much faster which is needed to run a code over a large set of data. Plus having a more organized code would be beneficial in terms of trying to debug the code if there are errors. Not only that, but a cleaner and more organized code would help better explain what the code is trying to do in case someone who hasn't seen the code has to use it or view it. 
 
 ### Advantages and disadvantages of using the refactored VBA script
 
-Like stated above, the biggest advantage of using the refactored VBA script is that it runs much faster and can handle very large sets of data. The disadvantage of trying to refactor the VBA script is that the code can get difficult with the numerous loops within one another, which could easily cause a syntax error that might be hard to find while debugging, which would make it difficult to ensure the code excecutes properly.
+Like stated above, the biggest advantage of using the refactored VBA script is that it runs much faster and can handle very large sets of data. The disadvantage of trying to refactor the VBA script is that the code can get difficult with the numerous loops within one another, which could easily cause a syntax error that might be hard to find while debugging, which would make it difficult to ensure the code executes properly.
 
